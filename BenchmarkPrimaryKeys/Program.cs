@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -8,27 +9,37 @@ namespace BenchmarkPrimaryKeys
     {
         static void Main(string[] args)
         {
+            int warmUpCount = 1000;
             int count = 10000;
             int stringLength = 40;
 
             Console.WriteLine("Warming up...");
-
-            BenchmarkDbGeneratedSequentialGuid(1, stringLength);
-            BenchmarkDbGeneratedNonSequentialGuid(1, stringLength);
-            BenchmarkClientGeneratedSequentialGuid(1, stringLength);
-            BenchmarkClientGeneratedNonSequentialGuid(1, stringLength);
-            BenchmarkAutoIncrementInt(1, stringLength);
-
+            BenchmarkDbGeneratedSequentialGuid(warmUpCount, stringLength);
             Console.WriteLine("Inserting {0} records...", count);
-
             Console.WriteLine("Inserting records with DB-generated sequential GUID primary key took {0} ms",
                 BenchmarkDbGeneratedSequentialGuid(count, stringLength));
+
+            Console.WriteLine("Warming up...");
+            BenchmarkDbGeneratedNonSequentialGuid(warmUpCount, stringLength);
+            Console.WriteLine("Inserting {0} records...", count);
             Console.WriteLine("Inserting records with DB-generated non-sequential GUID primary key took {0} ms",
                 BenchmarkDbGeneratedNonSequentialGuid(count, stringLength));
+
+            Console.WriteLine("Warming up...");
+            BenchmarkClientGeneratedSequentialGuid(warmUpCount, stringLength);
+            Console.WriteLine("Inserting {0} records...", count);
             Console.WriteLine("Inserting records with client-generated sequential GUID primary key took {0} ms",
                 BenchmarkClientGeneratedSequentialGuid(count, stringLength));
+
+            Console.WriteLine("Warming up...");
+            BenchmarkClientGeneratedNonSequentialGuid(warmUpCount, stringLength);
+            Console.WriteLine("Inserting {0} records...", count);
             Console.WriteLine("Inserting records with client-generated non-sequential GUID primary key took {0} ms",
                 BenchmarkClientGeneratedNonSequentialGuid(count, stringLength));
+
+            Console.WriteLine("Warming up...");
+            BenchmarkAutoIncrementInt(warmUpCount, stringLength);
+            Console.WriteLine("Inserting {0} records...", count);
             Console.WriteLine("Inserting records with auto-increment Int primary key took {0} ms",
                 BenchmarkAutoIncrementInt(count, stringLength));
         }
