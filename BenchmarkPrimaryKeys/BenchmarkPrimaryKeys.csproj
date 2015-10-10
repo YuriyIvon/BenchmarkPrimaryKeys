@@ -48,15 +48,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoIncrementIntKeyChildEntity5.cs" />
+    <Compile Include="AutoIncrementIntKeyChildEntity4.cs" />
+    <Compile Include="AutoIncrementIntKeyChildEntity3.cs" />
+    <Compile Include="AutoIncrementIntKeyChildEntity2.cs" />
+    <Compile Include="AutoIncrementIntKeyChildEntity1.cs" />
+    <Compile Include="AutoIncrementIntKeyParentEntity.cs" />
     <Compile Include="EntityDataContext.cs" />
+    <Compile Include="GuidKeyNonSequentialChildEntity2.cs" />
+    <Compile Include="GuidKeyNonSequentialChildEntity3.cs" />
+    <Compile Include="GuidKeyNonSequentialChildEntity4.cs" />
+    <Compile Include="GuidKeyNonSequentialChildEntity5.cs" />
+    <Compile Include="GuidKeyNonSequentialChildEntity1.cs" />
+    <Compile Include="GuidKeySequentialChildEntity5.cs" />
+    <Compile Include="GuidKeySequentialChildEntity4.cs" />
+    <Compile Include="GuidKeySequentialChildEntity3.cs" />
+    <Compile Include="GuidKeySequentialChildEntity2.cs" />
+    <Compile Include="GuidKeySequentialChildEntity1.cs" />
     <Compile Include="GuidKeyClientSequentialEntity.cs" />
     <Compile Include="GuidKeyClientNonSequentialEntity.cs" />
     <Compile Include="GuidKeyDbSequentialEntity.cs" />
     <Compile Include="GuidKeyDbNonSequentialEntity.cs" />
     <Compile Include="AutoIncrementIntKeyEntity.cs" />
+    <Compile Include="GuidKeyNonSequentialParentEntity.cs" />
+    <Compile Include="GuidKeySequentialParentEntity.cs" />
     <Compile Include="Migrations\201508080842462_Initial.cs" />
     <Compile Include="Migrations\201508080842462_Initial.Designer.cs">
       <DependentUpon>201508080842462_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509201832486_SelectBenchmark.cs" />
+    <Compile Include="Migrations\201509201832486_SelectBenchmark.Designer.cs">
+      <DependentUpon>201509201832486_SelectBenchmark.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -70,6 +92,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508080842462_Initial.resx">
       <DependentUpon>201508080842462_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509201832486_SelectBenchmark.resx">
+      <DependentUpon>201509201832486_SelectBenchmark.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
